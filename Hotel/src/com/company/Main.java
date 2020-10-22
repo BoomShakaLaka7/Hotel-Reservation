@@ -12,6 +12,5 @@ public class Main {
         User model = new User();
 
         Controller controller = new Controller(view, model);
-        view.setVisible(true);
     }
 }
