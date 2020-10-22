@@ -1,13 +1,13 @@
 package com.company.controller;
 
-import com.company.model.Model;
+import com.company.model.User;
 import com.company.view.View;
 
 public class Controller {
     private View view;
-    private Model model;
+    private User model;
 
-    public Controller(View view, Model model) {
+    public Controller(View view, User model) {
         this.view = view;
         this.model = model;
     }

@@ -1,4 +1,8 @@
 package com.company.view;
 
-public class View {
+import javax.swing.*;
+
+public class View extends JFrame {
+
+
 }
