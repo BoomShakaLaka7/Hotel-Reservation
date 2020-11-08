@@ -18,14 +18,17 @@ public class View {
     private JTextField guests = new JTextField(10);
     private JTextField minPrice = new JTextField(10);
     private JTextField maxPrice = new JTextField(10);
-    private JTextField reviews = new JTextField(10);
+//    private JTextField reviews = new JTextField(10);
+    private JComboBox<String> reviews = new JComboBox<>();
 
     public View(){
         JPanel panel = new JPanel();
         JPanel filterPanel = new JPanel();
-        JLabel l1, l2, l3, l4, l5, l6;
-//        CalendarDemo calendarDemo = new CalendarDemo("Calendar");
+
+        JLabel l1, l2, l3, l4, l5, l6, l7;
         UtilDateModel model = new UtilDateModel();
+        UtilDateModel model2 = new UtilDateModel();
+
         Properties p = new Properties();
         p.put("text.today", "Today");
         p.put("text.month", "Month");
@@ -34,7 +37,7 @@ public class View {
         JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
         JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, new DateComponentFormatter());
 
-        JDatePanelImpl datePanel2 = new JDatePanelImpl(model, p);
+        JDatePanelImpl datePanel2 = new JDatePanelImpl(model2, p);
         JDatePickerImpl datePicker2 = new JDatePickerImpl(datePanel2, new DateComponentFormatter());
 
         search = new JButton("Search");
@@ -46,6 +49,12 @@ public class View {
         l4 = new JLabel("Max Price");
         l5 = new JLabel("Check in");
         l6 = new JLabel("Check out");
+        l7 = new JLabel("Reviews");
+        reviews.addItem("2+");
+        reviews.addItem("3+");
+        reviews.addItem("4+");
+        reviews.setEditable(true);
+        reviews.setBounds(50, 140, 48, 16);
 
         panel.add(l1);
         panel.add(city);
@@ -55,18 +64,23 @@ public class View {
         panel.add(datePicker);
         panel.add(l6);
         panel.add(datePicker2);
-        panel.add(search);
         panel.setLayout(new FlowLayout());
 
         filterPanel.add(l3);
         filterPanel.add(minPrice);
         filterPanel.add(l4);
         filterPanel.add(maxPrice);
-//        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+        filterPanel.add(l7);
+        filterPanel.add(reviews);
+        filterPanel.setLayout(new FlowLayout());
+
         frame.add(panel);
+        frame.add(filterPanel);
+        frame.add(search);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-        frame.setSize(700, 500);
+        frame.setSize(1000, 300);
+        frame.setLayout(new FlowLayout());
 
     }
 }
