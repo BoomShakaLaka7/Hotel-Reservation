@@ -7,7 +7,6 @@ import org.jdatepicker.impl.UtilDateModel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Calendar;
 import java.util.Properties;
 
 public class View {
