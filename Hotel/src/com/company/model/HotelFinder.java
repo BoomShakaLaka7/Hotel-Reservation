@@ -20,7 +20,7 @@ public class HotelFinder {
         File file = new File("Hotel.txt");
         FileWriter fw = new FileWriter(file, true);
 
-        
+
 
         ArrayList<Hotel> hotels = new ArrayList<>();
         return hotels;

@@ -20,10 +20,22 @@ public class View {
 //    private JTextField reviews = new JTextField(10);
     private JComboBox<String> reviews = new JComboBox<>();
 
-    public View(){
-        JPanel panel = new JPanel();
-        JPanel filterPanel = new JPanel();
 
+    private JTextField zipCodeTextField;
+    private JTextField countryTextField;
+
+    public View() {
+        initialize();
+        frame.setVisible(true);
+    }
+
+    public void initialize(){
+        JPanel panel = new JPanel();
+//        JPanel filterPanel = new JPanel();
+        panel.setBounds(0, 0, 1000, 300);
+        panel.setLayout(null);
+//        filterPanel.setBounds(0, 0, 1000, 300);
+//        filterPanel.setLayout(null);
         JLabel l1, l2, l3, l4, l5, l6, l7;
         UtilDateModel model = new UtilDateModel();
         UtilDateModel model2 = new UtilDateModel();
@@ -43,43 +55,56 @@ public class View {
         filter = new JButton("Filter");
 
         l1 = new JLabel("City");
+        l1.setBounds(10, 0, 50, 50);
         l2 = new JLabel("Number of guests");
+        l2.setBounds(150, 0, 150, 50);
         l3 = new JLabel("Min Price");
+        l3.setBounds(400,35,100,50);
         l4 = new JLabel("Max Price");
+        l4.setBounds(570, 35, 100, 50);
         l5 = new JLabel("Check in");
+        l5.setBounds(380, 0, 70, 50);
         l6 = new JLabel("Check out");
+        l6.setBounds(620, 0, 70, 50);
         l7 = new JLabel("Reviews");
+        l7.setBounds(740, 35, 70,50);
         reviews.addItem("2+");
         reviews.addItem("3+");
         reviews.addItem("4+");
         reviews.setEditable(true);
-        reviews.setBounds(50, 140, 48, 16);
+        reviews.setBounds(790, 50, 50, 20);
 
         panel.add(l1);
+        city.setBounds(40, 15, 100, 20);
         panel.add(city);
         panel.add(l2);
+        guests.setBounds(270, 15, 100, 20);
         panel.add(guests);
         panel.add(l5);
+        datePicker.setBounds(440, 15, 170, 20);
         panel.add(datePicker);
         panel.add(l6);
+        datePicker2.setBounds(700, 15, 170, 20);
         panel.add(datePicker2);
-        panel.setLayout(new FlowLayout());
+        search.setBounds(880, 15, 100, 20);
+        panel.add(search);
 
-        filterPanel.add(l3);
-        filterPanel.add(minPrice);
-        filterPanel.add(l4);
-        filterPanel.add(maxPrice);
-        filterPanel.add(l7);
-        filterPanel.add(reviews);
-        filterPanel.setLayout(new FlowLayout());
+        filter.setBounds(880, 50, 100, 20);
+        panel.add(filter);
+        panel.add(l3);
+        minPrice.setBounds(460, 50, 100, 20);
+        panel.add(minPrice);
+        panel.add(l4);
+        maxPrice.setBounds(630, 50, 100, 20);
+        panel.add(maxPrice);
+        panel.add(l7);
+        panel.add(reviews);
 
-        frame.add(panel);
-        frame.add(filterPanel);
-        frame.add(search);
+        frame.getContentPane().add(panel);
+//        frame.getContentPane().add(filterPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        frame.setSize(1000, 300);
-        frame.setLayout(new FlowLayout());
+        frame.setBounds(100, 100, 1000, 300);
+        frame.getContentPane().setLayout(null);
 
     }
 }
