@@ -1,5 +1,6 @@
 package com.company.view;
 
+import com.company.model.HotelFinder;
 import org.jdatepicker.impl.DateComponentFormatter;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
@@ -7,6 +8,8 @@ import org.jdatepicker.impl.UtilDateModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Properties;
 
 public class View {
@@ -17,12 +20,13 @@ public class View {
     private JTextField guests = new JTextField(10);
     private JTextField minPrice = new JTextField(10);
     private JTextField maxPrice = new JTextField(10);
-//    private JTextField reviews = new JTextField(10);
     private JComboBox<String> reviews = new JComboBox<>();
-
+    private JDatePickerImpl datePicker;
+    private JDatePickerImpl datePicker2;
 
     private JTextField zipCodeTextField;
     private JTextField countryTextField;
+
 
     public View() {
         initialize();
@@ -46,10 +50,10 @@ public class View {
         p.put("text.year", "Year");
 
         JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
-        JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, new DateComponentFormatter());
+        datePicker = new JDatePickerImpl(datePanel, new DateComponentFormatter());
 
         JDatePanelImpl datePanel2 = new JDatePanelImpl(model2, p);
-        JDatePickerImpl datePicker2 = new JDatePickerImpl(datePanel2, new DateComponentFormatter());
+        datePicker2 = new JDatePickerImpl(datePanel2, new DateComponentFormatter());
 
         search = new JButton("Search");
         filter = new JButton("Filter");
@@ -68,9 +72,12 @@ public class View {
         l6.setBounds(620, 0, 70, 50);
         l7 = new JLabel("Reviews");
         l7.setBounds(740, 35, 70,50);
-        reviews.addItem("2+");
-        reviews.addItem("3+");
-        reviews.addItem("4+");
+        reviews.addItem("2");
+        reviews.addItem("2.5");
+        reviews.addItem("3");
+        reviews.addItem("3.5");
+        reviews.addItem("4");
+        reviews.addItem("4.5");
         reviews.setEditable(true);
         reviews.setBounds(790, 50, 50, 20);
 
@@ -106,5 +113,39 @@ public class View {
         frame.setBounds(100, 100, 1000, 300);
         frame.getContentPane().setLayout(null);
 
+        search.addActionListener(event -> {
+//            HotelFinder h = new HotelFinder();
+//            h.display();
+            System.out.println(getReview());
+        });
     }
+
+    public String getCity() {
+        return city.getText();
+    }
+
+    public int getGuests() {
+        return Integer.parseInt(guests.getText());
+    }
+
+    public float getMinPrice() {
+        return Float.parseFloat(minPrice.getText());
+    }
+
+    public float getMaxPrice() {
+        return Float.parseFloat(maxPrice.getText());
+    }
+
+    public Date getCheckIn(){
+        return (Date) datePicker.getModel().getValue();
+    }
+
+    public Date getCheckOut(){
+        return (Date) datePicker2.getModel().getValue();
+    }
+
+    public String getReview(){
+        return reviews.getSelectedItem().toString();
+    }
+
 }
