@@ -3,33 +3,18 @@ package com.company.model;
 import com.company.view.View;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
+import java.util.*;
 
 public class HotelFinder{
-    private static String city;
-    private static String hotelName;
-    private static Date checkIn;
-    private static Date checkOut;
-    private static int numberOfGuests;
-    private static int star;
-    private static int minPrice;
-    private static int maxPrice;
-    private static String review;
     private static ArrayList<Hotel> hotels = new ArrayList<>();
 //    private static HashMap<String, Hotel> hotels = new HashMap<>();
 
-    public HotelFinder(String hotelName, String city, int star, String review) {
-        this.city = city;
-        this.numberOfGuests = numberOfGuests;
-        this.review = review;
-    }
-
     public HotelFinder() {
     }
+    //static removed
+    //data removed
 
-    public static void getHotels() throws IOException {
+    public static ArrayList<Hotel> getHotels() throws IOException {
         FileReader file = new FileReader("Hotel.txt");
         BufferedReader inputFile = new BufferedReader(file);
         String str = inputFile.readLine();
@@ -39,19 +24,39 @@ public class HotelFinder{
             String[] values = line.split(", ");
 
             for(String val: values){
-                    hotels.add(new Hotel(values[0], values[1], Integer.parseInt(values[2]), Integer.parseInt(values[3]), Float.parseFloat(values[4])));
+                    hotels.add(new Hotel(values[0], values[1], Integer.parseInt(values[2]), Integer.parseInt(values[3]), values[4]));
                 }
         }
+
+        return hotels;
     }
 
+    public static Object[][] getSearchResults(String city,  int star, Date checkIn, Date checkOut,
+                                       int numberOfGuests, int minPrice, int maxPrice, String reviews){
+        ArrayList<Object[]> hotelsList = new ArrayList<>();
+        int hotelsFound = 0;
+        for(int i = 0; i < hotels.size(); i++)
+        {
+            if(hotels.get(i).getLocation().equals(city))
+            {
+                Object[] HotelInfo = new Object[] {
+                       hotels.get(i).getHotel(),
+                       hotels.get(i).getLocation(),
+                       hotels.get(i).getPrice(),
+                       hotels.get(i).getStar(),
 
-//    public void updateValues(String city, Date checkIn, Date checkOut, int numberOfGuests, int minPrice, int maxPrice, String review){
-//        this.city = city;
-//        this.checkIn = checkIn;
-//        this.checkOut = checkOut;
-//        this.numberOfGuests = numberOfGuests;
-//        this.minPrice = minPrice;
-//        this.maxPrice = maxPrice;
-//        this.review = review;
-//    }
+                };
+                hotelsList.add(HotelInfo);
+                hotelsFound += 1;
+            }
+        }
+
+        Object[][] returnList = new Object[hotelsList.size()][4];
+        for(int i = 0; i < hotelsFound; i ++)
+        {
+            returnList[i] = hotelsList.get(i);
+        }
+        return returnList;
+    }
+
 }

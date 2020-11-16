@@ -5,9 +5,9 @@ public class Hotel {
     private String location;
     private int price;
     private int star;
-    private float review;
+    private String review;
 
-    public Hotel(String hotel, String location, int price, int star, float review) {
+    public Hotel(String hotel, String location, int price, int star, String review) {
         this.hotel = hotel;
         this.location = location;
         this.star = star;
@@ -29,5 +29,16 @@ public class Hotel {
 
     public int getStar() {
         return star;
+    }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "hotel='" + hotel + '\'' +
+                ", location='" + location + '\'' +
+                ", price=" + price +
+                ", star=" + star +
+                ", review='" + review + '\'' +
+                '}';
     }
 }

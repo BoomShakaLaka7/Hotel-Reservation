@@ -127,13 +127,13 @@ public class View {
         frame.getContentPane().setLayout(null);
 
         search.addActionListener(event -> {
-//            searchResults.display();
-//            HotelFinder h = new HotelFinder();
-//            try {
-//                System.out.println(h.sort());
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                SearchResults.searchResultsImpl();
+//                SearchResults.searchResults();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         });
     }
 
@@ -145,12 +145,12 @@ public class View {
         return Integer.parseInt(guests.getText());
     }
 
-    public float getMinPrice() {
-        return Float.parseFloat(minPrice.getText());
+    public int getMinPrice() {
+        return Integer.parseInt(minPrice.getText());
     }
 
-    public float getMaxPrice() {
-        return Float.parseFloat(maxPrice.getText());
+    public int getMaxPrice() {
+        return Integer.parseInt(maxPrice.getText());
     }
 
     public Date getCheckIn(){

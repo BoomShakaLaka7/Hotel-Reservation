@@ -1,25 +1,25 @@
-Hilton Union Square, San Francisco, 135$, 4, 4.2
-Hilton Financial District, San Francisco, 95$, 4, 4.3
-Marriott Marquis, San Francisco, 169$, 5, 4.4
-Intercontinental, San Francisco, 144$, 4, 4.4
-Hyatt Regency, San Francisco, 179$, 5, 4.5
-The Lexington Hotel, New York, 200$, 5, 4.1
-The Plaza, New York, 830$, 5, 4.5
-Four Seasons, New York, 1495$, 5, 4.6
-The Ritz-Carlton, New York, 835$, 5, 4.6
-WestHouse Hotel, New York, 275$, 4, 4.2
-Mayflower Hotel, London, 56$, 3, 3.5
-Rochester Hotel, London, 101$, 3, 3.9
-Eden Plaza Kensington, London, 64$, 3, 3.7
-Marble Arch London, London, 147$, 4, 4.1
-Radisson Blu Edwardian, London, 268$, 5, 4.4
-Ambassade Hotel, Amsterdam, 151$, 4, 4.8
-Morgan and Mees, Amsterdam, 191$, 5, 4.4
-Cocomama, Amsterdam, 45$, 3, 4.5
-Hostelle, Amsterdam, 42$, 3, 4.6
-The Dylan, Amsterdam, 364$, 5, 4.7
-Ashanti Lodge Gardens, Cape Town, 21$, 2, 4.2
-Mont Angelis, Cape Town, 77$, 3, 4.7
-Zevenwacht, Cape Town, 121$, 4, 4.4
-Tintswalo Atlantic, Cape Town, 427$, 5, 4.8
-Colona Castle, Cape Town, 182$, 4, 4.8
+Hilton Union Square, San Francisco, 135, 4, 4.2
+Hilton Financial District, San Francisco, 95, 4, 4.3
+Marriott Marquis, San Francisco, 169, 5, 4.4
+Intercontinental, San Francisco, 144, 4, 4.4
+Hyatt Regency, San Francisco, 179, 5, 4.5
+The Lexington Hotel, New York, 200, 5, 4.1
+The Plaza, New York, 830, 5, 4.5
+Four Seasons, New York, 1495, 5, 4.6
+The Ritz-Carlton, New York, 835, 5, 4.6
+WestHouse Hotel, New York, 275, 4, 4.2
+Mayflower Hotel, London, 56, 3, 3.5
+Rochester Hotel, London, 101, 3, 3.9
+Eden Plaza Kensington, London, 64, 3, 3.7
+Marble Arch London, London, 147, 4, 4.1
+Radisson Blu Edwardian, London, 268, 5, 4.4
+Ambassade Hotel, Amsterdam, 151, 4, 4.8
+Morgan and Mees, Amsterdam, 191, 5, 4.4
+Cocomama, Amsterdam, 45, 3, 4.5
+Hostelle, Amsterdam, 42, 3, 4.6
+The Dylan, Amsterdam, 364, 5, 4.7
+Ashanti Lodge Gardens, Cape Town, 21, 2, 4.2
+Mont Angelis, Cape Town, 77, 3, 4.7
+Zevenwacht, Cape Town, 121, 4, 4.4
+Tintswalo Atlantic, Cape Town, 427, 5, 4.8
+Colona Castle, Cape Town, 182, 4, 4.8
