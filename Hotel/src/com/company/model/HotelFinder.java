@@ -4,22 +4,32 @@ import com.company.view.View;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
-public class HotelFinder {
-    private String city;
-    private Date checkIn;
-    private Date checkOut;
-    private int numberOfGuests;
-    private float minPrice;
-    private float maxPrice;
-    private String review;
+public class HotelFinder{
+    private static String city;
+    private static String hotelName;
+    private static Date checkIn;
+    private static Date checkOut;
+    private static int numberOfGuests;
+    private static int star;
+    private static int minPrice;
+    private static int maxPrice;
+    private static String review;
+    private static ArrayList<Hotel> hotels = new ArrayList<>();
+//    private static HashMap<String, Hotel> hotels = new HashMap<>();
 
-    View view;
-    ArrayList<Hotel> hotels = new ArrayList<>();
+    public HotelFinder(String hotelName, String city, int star, String review) {
+        this.city = city;
+        this.numberOfGuests = numberOfGuests;
+        this.review = review;
+    }
 
-    public ArrayList<Hotel> sort() throws IOException {
+    public HotelFinder() {
+    }
+
+    public static void getHotels() throws IOException {
         FileReader file = new FileReader("Hotel.txt");
         BufferedReader inputFile = new BufferedReader(file);
         String str = inputFile.readLine();
@@ -28,30 +38,14 @@ public class HotelFinder {
         while((line = inputFile.readLine()) != null){
             String[] values = line.split(", ");
 
-            city = view.getCity();
-            numberOfGuests = view.getGuests();
-            checkIn = view.getCheckIn();
-            checkOut = view.getCheckOut();
-            minPrice = view.getMinPrice();
-            maxPrice = view.getMaxPrice();
-            review = view.getReview();
-
             for(String val: values){
-                if(city.equals(values[0]) ) {//&& review.equals(values[3]))
-                    hotels.add(new Hotel(values[1], values[2], Float.parseFloat(values[3]), Integer.parseInt(values[4]),
-                            Float.parseFloat(values[5])));
+                    hotels.add(new Hotel(values[0], values[1], Integer.parseInt(values[2]), Integer.parseInt(values[3]), Float.parseFloat(values[4])));
                 }
-            }
         }
-
-        return hotels;
     }
 
-    public void display(){
 
-    }
-
-//    public void updateValues(String city, Calendar checkIn, Calendar checkOut, int numberOfGuests, float minPrice, float maxPrice, String review){
+//    public void updateValues(String city, Date checkIn, Date checkOut, int numberOfGuests, int minPrice, int maxPrice, String review){
 //        this.city = city;
 //        this.checkIn = checkIn;
 //        this.checkOut = checkOut;

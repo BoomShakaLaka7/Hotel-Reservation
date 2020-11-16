@@ -8,25 +8,27 @@ import org.jdatepicker.impl.UtilDateModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
 
 public class View {
 
-    JFrame frame = new JFrame("Hotel Reservation System");
+    private JFrame frame = new JFrame("Hotel Reservation System");
     static JButton search, filter;
     private JTextField city = new JTextField(10);
     private JTextField guests = new JTextField(10);
     private JTextField minPrice = new JTextField(10);
     private JTextField maxPrice = new JTextField(10);
     private JComboBox<String> reviews = new JComboBox<>();
+    private JComboBox<Integer> star = new JComboBox<>();
+
     private JDatePickerImpl datePicker;
     private JDatePickerImpl datePicker2;
 
     private JTextField zipCodeTextField;
     private JTextField countryTextField;
-
 
     public View() {
         initialize();
@@ -40,7 +42,7 @@ public class View {
         panel.setLayout(null);
 //        filterPanel.setBounds(0, 0, 1000, 300);
 //        filterPanel.setLayout(null);
-        JLabel l1, l2, l3, l4, l5, l6, l7;
+        JLabel l1, l2, l3, l4, l5, l6, l7, l8;
         UtilDateModel model = new UtilDateModel();
         UtilDateModel model2 = new UtilDateModel();
 
@@ -72,6 +74,8 @@ public class View {
         l6.setBounds(620, 0, 70, 50);
         l7 = new JLabel("Reviews");
         l7.setBounds(740, 35, 70,50);
+        l8 = new JLabel("Star");
+        l8.setBounds(310, 35, 70, 50);
         reviews.addItem("2");
         reviews.addItem("2.5");
         reviews.addItem("3");
@@ -80,6 +84,13 @@ public class View {
         reviews.addItem("4.5");
         reviews.setEditable(true);
         reviews.setBounds(790, 50, 50, 20);
+
+        star.addItem(2);
+        star.addItem(3);
+        star.addItem(4);
+        star.addItem(5);
+        star.setEditable(true);
+        star.setBounds(340, 50, 50, 20);
 
         panel.add(l1);
         city.setBounds(40, 15, 100, 20);
@@ -106,6 +117,8 @@ public class View {
         panel.add(maxPrice);
         panel.add(l7);
         panel.add(reviews);
+        panel.add(l8);
+        panel.add(star);
 
         frame.getContentPane().add(panel);
 //        frame.getContentPane().add(filterPanel);
@@ -114,9 +127,13 @@ public class View {
         frame.getContentPane().setLayout(null);
 
         search.addActionListener(event -> {
+//            searchResults.display();
 //            HotelFinder h = new HotelFinder();
-//            h.display();
-            System.out.println(getReview());
+//            try {
+//                System.out.println(h.sort());
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         });
     }
 
@@ -147,5 +164,7 @@ public class View {
     public String getReview(){
         return reviews.getSelectedItem().toString();
     }
+
+    public int getStar() { return (int) star.getSelectedItem(); }
 
 }

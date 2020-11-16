@@ -10,5 +10,7 @@ public class Controller {
     public Controller(View view, User model) {
         this.view = view;
         this.model = model;
+
+
     }
 }
