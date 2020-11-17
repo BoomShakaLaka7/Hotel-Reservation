@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SearchResults extends JFrame{
-    private JPanel panel = new JPanel();
+    private JPanel contentPane;
     private JTable table;
     private DefaultTableModel tableModel;
     View view;
@@ -22,45 +22,45 @@ public class SearchResults extends JFrame{
     }
 
     public SearchResults() throws IOException {
+
         setTitle("Search Results");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 702, 769);
-        panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(panel);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
 
         JScrollPane scrollPane = new JScrollPane();
-        panel.add(scrollPane);
-        panel.setLayout(null);
+        scrollPane.setBounds(10, 45, 500, 608);
+        contentPane.add(scrollPane);
 
         table = new JTable();
 
-        JLabel l2 = new JLabel("Testing");
-        panel.add(l2);
+        tableModel = new DefaultTableModel(
+                Model.getSearchResults(),
+                new String[]{
+                        "Hotel Name", "Location", "Star", "Price" ,"Review"
+                }) {
 
-//        tableModel = new DefaultTableModel(
-//                Model.getSearchResults(view.getCity(), view.getStar(), view.getCheckIn(), view.getCheckOut(),
-//                        view.getGuests(), view.getMinPrice(), view.getMaxPrice(), view.getReview()),
-//                new String[]{
-//                        "Hotel Name", "Location", "Star", "Review"
-//                }) {
-//
-//            private static final long serialVersionUID = 1L;
-//            @SuppressWarnings("rawtypes")
-//            Class[] columnTypes = new Class[]{
-//                    String.class, String.class, Integer.class, String.class
-//            };
-//
-//            public Class getColumnClass(int columnIndex) {
-//                return columnTypes[columnIndex];
-//            }
-//        };
-//        table.setModel(tableModel);
-//
-//        table.getColumnModel().getColumn(0).setPreferredWidth(60);
-//        table.getColumnModel().getColumn(1).setPreferredWidth(136);
-//        table.getColumnModel().getColumn(2).setPreferredWidth(170);
-//        table.getColumnModel().getColumn(3).setPreferredWidth(205);
-//        scrollPane.setViewportView(table);
+            private static final long serialVersionUID = 1L;
+            @SuppressWarnings("rawtypes")
+            Class[] columnTypes = new Class[]{
+                    String.class, String.class, Integer.class, Integer.class, String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return columnTypes[columnIndex];
+            }
+        };
+        table.setModel(tableModel);
+
+        table.getColumnModel().getColumn(0).setPreferredWidth(200);
+        table.getColumnModel().getColumn(1).setPreferredWidth(150);
+        table.getColumnModel().getColumn(2).setPreferredWidth(50);
+        table.getColumnModel().getColumn(3).setPreferredWidth(70);
+        table.getColumnModel().getColumn(4).setPreferredWidth(50);
+        scrollPane.setViewportView(table);
     }
 
     public JTable getTable() {

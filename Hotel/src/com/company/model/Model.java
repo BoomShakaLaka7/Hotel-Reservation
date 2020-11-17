@@ -27,24 +27,27 @@ public class Model {
         return hotels;
     }
 
-    public static Object[][] getSearchResults(String city,  int star, Date checkIn, Date checkOut,
-                                       int numberOfGuests, int minPrice, int maxPrice, String reviews){
+//    public static Object[][] getSearchResults(String city,  int star, Date checkIn, Date checkOut,
+//                                              int numberOfGuests, int minPrice, int maxPrice, String reviews)
+//or
+//public static Object[][] getSearchResults(String hotelName, String city,  int star, int minPrice, String reviews)
+    public static Object[][] getSearchResults(){
         ArrayList<Object[]> hotelsList = new ArrayList<>();
         int hotelsFound = 0;
         for(int i = 0; i < hotels.size(); i++)
         {
-            if(hotels.get(i).getLocation().equals(city))
-            {
+//            if(hotels.get(i).getLocation().equals(city))
+//            {
                 Object[] HotelInfo = new Object[] {
                        hotels.get(i).getHotel(),
                        hotels.get(i).getLocation(),
                        hotels.get(i).getPrice(),
                        hotels.get(i).getStar(),
-
+                        hotels.get(i).getReview()
                 };
                 hotelsList.add(HotelInfo);
                 hotelsFound += 1;
-            }
+//            }
         }
 
         Object[][] returnList = new Object[hotelsList.size()][4];

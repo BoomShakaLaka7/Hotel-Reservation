@@ -18,6 +18,7 @@ public class View {
     private JTextField guests = new JTextField(10);
     private JTextField minPrice = new JTextField(10);
     private JTextField maxPrice = new JTextField(10);
+    private JTextField hotelName = new JTextField(10);
     private JComboBox<String> reviews = new JComboBox<>();
     private JComboBox<Integer> star = new JComboBox<>();
 
@@ -165,6 +166,10 @@ public class View {
 
     public int getStar() { return (int) star.getSelectedItem(); }
 
+    public String getHotelName() {
+        return hotelName.getText();
+    }
+
     public void searchButtonListener(ActionListener searchButton){
         search.addActionListener(searchButton);
     }
@@ -197,6 +202,7 @@ public class View {
         star.setSelectedIndex(Pstar);
     }
 
-
-
+    public void setHotelName(String Pname){
+        hotelName.setText(Pname);
+    }
 }

@@ -52,6 +52,7 @@ public class Controller {
                 view.setMinPrice(hotel.getPrice());
                 view.setStar(hotel.getStar());
                 view.setReviews(hotel.getReview());
+                view.setHotelName(hotel.getHotel());
             }
         }
 
