@@ -1,18 +1,14 @@
 package com.company.model;
 
-import com.company.view.View;
-
 import java.io.*;
 import java.util.*;
 
-public class HotelFinder{
-    private static ArrayList<Hotel> hotels = new ArrayList<>();
+public class Model {
+    public static ArrayList<Hotel> hotels = new ArrayList<>();
 //    private static HashMap<String, Hotel> hotels = new HashMap<>();
 
-    public HotelFinder() {
+    public Model() {
     }
-    //static removed
-    //data removed
 
     public static ArrayList<Hotel> getHotels() throws IOException {
         FileReader file = new FileReader("Hotel.txt");

@@ -1,12 +1,11 @@
 package com.company.view;
 
 import com.company.model.Hotel;
-import com.company.model.HotelFinder;
+import com.company.model.Model;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -35,30 +34,36 @@ public class SearchResults extends JFrame{
 
         table = new JTable();
 
-        tableModel = new DefaultTableModel(
-                HotelFinder.getSearchResults(view.getCity(), view.getStar(), view.getCheckIn(), view.getCheckOut(),
-                        view.getGuests(), view.getMinPrice(), view.getMaxPrice(), view.getReview()),
-                new String[]{
-                        "Hotel Name", "Location", "Star", "Review"
-                }) {
+        JLabel l2 = new JLabel("Testing");
+        panel.add(l2);
 
-            private static final long serialVersionUID = 1L;
-            @SuppressWarnings("rawtypes")
-            Class[] columnTypes = new Class[]{
-                    String.class, String.class, Integer.class, String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return columnTypes[columnIndex];
-            }
-        };
-        table.setModel(tableModel);
-
-        table.getColumnModel().getColumn(0).setPreferredWidth(60);
-        table.getColumnModel().getColumn(1).setPreferredWidth(136);
-        table.getColumnModel().getColumn(2).setPreferredWidth(170);
-        table.getColumnModel().getColumn(3).setPreferredWidth(205);
-        scrollPane.setViewportView(table);
+//        tableModel = new DefaultTableModel(
+//                Model.getSearchResults(view.getCity(), view.getStar(), view.getCheckIn(), view.getCheckOut(),
+//                        view.getGuests(), view.getMinPrice(), view.getMaxPrice(), view.getReview()),
+//                new String[]{
+//                        "Hotel Name", "Location", "Star", "Review"
+//                }) {
+//
+//            private static final long serialVersionUID = 1L;
+//            @SuppressWarnings("rawtypes")
+//            Class[] columnTypes = new Class[]{
+//                    String.class, String.class, Integer.class, String.class
+//            };
+//
+//            public Class getColumnClass(int columnIndex) {
+//                return columnTypes[columnIndex];
+//            }
+//        };
+//        table.setModel(tableModel);
+//
+//        table.getColumnModel().getColumn(0).setPreferredWidth(60);
+//        table.getColumnModel().getColumn(1).setPreferredWidth(136);
+//        table.getColumnModel().getColumn(2).setPreferredWidth(170);
+//        table.getColumnModel().getColumn(3).setPreferredWidth(205);
+//        scrollPane.setViewportView(table);
     }
 
+    public JTable getTable() {
+        return table;
+    }
 }

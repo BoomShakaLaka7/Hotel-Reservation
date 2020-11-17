@@ -23,12 +23,16 @@ public class Hotel {
         return location;
     }
 
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
     public int getStar() {
         return star;
+    }
+
+    public String getReview(){
+        return review;
     }
 
     @Override

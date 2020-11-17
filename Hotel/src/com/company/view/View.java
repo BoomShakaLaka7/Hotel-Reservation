@@ -1,15 +1,12 @@
 package com.company.view;
 
-import com.company.model.HotelFinder;
 import org.jdatepicker.impl.DateComponentFormatter;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
 import javax.swing.*;
-import java.awt.*;
-import java.io.IOException;
-import java.util.Calendar;
+import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.Properties;
 
@@ -126,15 +123,16 @@ public class View {
         frame.setBounds(100, 100, 1000, 300);
         frame.getContentPane().setLayout(null);
 
-        search.addActionListener(event -> {
-            try {
-                SearchResults.searchResultsImpl();
+//        search.addActionListener(event -> {
+//            try {
+//                SearchResults.searchResultsImpl();
 //                SearchResults.searchResults();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        });
 
-        });
+
     }
 
     public String getCity() {
@@ -166,5 +164,39 @@ public class View {
     }
 
     public int getStar() { return (int) star.getSelectedItem(); }
+
+    public void searchButtonListener(ActionListener searchButton){
+        search.addActionListener(searchButton);
+    }
+
+    public void filterButtonListener(ActionListener filterButton){
+        filter.addActionListener(filterButton);
+    }
+
+    public void setCity(String Pcity) {
+        city.setText(Pcity);
+    }
+
+    public void setGuests(int Pguests) {
+        guests.setText(Integer.toString(Pguests));
+    }
+
+    public void setMinPrice(int PminPrice) {
+        minPrice.setText(Integer.toString(PminPrice));
+    }
+
+    public void setMaxPrice(int PmaxPrice) {
+        maxPrice.setText(Integer.toString(PmaxPrice));
+    }
+
+    public void setReviews(String Previews) {
+        reviews.setSelectedIndex(Integer.parseInt(Previews));
+    }
+
+    public void setStar(int Pstar) {
+        star.setSelectedIndex(Pstar);
+    }
+
+
 
 }
