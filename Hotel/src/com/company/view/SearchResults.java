@@ -10,60 +10,25 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SearchResults extends JFrame{
-    private JPanel contentPane;
-    private JTable table;
-    private DefaultTableModel tableModel;
+    private JPanel panel;
+    private static JTextArea results;
     View view;
     ArrayList<Hotel> hotels;
 
-    public static void searchResultsImpl() throws IOException {
+    public static void getSearchResultsView(){
         SearchResults frame = new SearchResults();
         frame.setVisible(true);
     }
 
-    public SearchResults() throws IOException {
-
+    public SearchResults(){
         setTitle("Search Results");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 702, 769);
-        contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPane);
-        contentPane.setLayout(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+//        setContentPane(panel);
+//        panel.setLayout(null);
+        setSize(500, 500);
+        results = new JTextArea();
+        results.setText("");
 
-        JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(10, 45, 500, 608);
-        contentPane.add(scrollPane);
-
-        table = new JTable();
-
-        tableModel = new DefaultTableModel(
-                Model.getSearchResults(),
-                new String[]{
-                        "Hotel Name", "Location", "Star", "Price" ,"Review"
-                }) {
-
-            private static final long serialVersionUID = 1L;
-            @SuppressWarnings("rawtypes")
-            Class[] columnTypes = new Class[]{
-                    String.class, String.class, Integer.class, Integer.class, String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return columnTypes[columnIndex];
-            }
-        };
-        table.setModel(tableModel);
-
-        table.getColumnModel().getColumn(0).setPreferredWidth(200);
-        table.getColumnModel().getColumn(1).setPreferredWidth(150);
-        table.getColumnModel().getColumn(2).setPreferredWidth(50);
-        table.getColumnModel().getColumn(3).setPreferredWidth(70);
-        table.getColumnModel().getColumn(4).setPreferredWidth(50);
-        scrollPane.setViewportView(table);
-    }
-
-    public JTable getTable() {
-        return table;
     }
 }

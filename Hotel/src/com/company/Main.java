@@ -15,9 +15,9 @@ public class Main {
         View view = new View();
         User user = new User();
         Model model = new Model();
-        SearchResults searchResults = new SearchResults();
+//        SearchResults searchResults = new SearchResults();
 
-        Controller controller = new Controller(view, user, searchResults, model);
+        Controller controller = new Controller(view, user, model);
 
 //        HotelFinder h = new HotelFinder();
 //        System.out.println(h.getSearchResults("New-York", 5, 2, 100, 2000, "4"));

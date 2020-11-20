@@ -7,6 +7,7 @@ import org.jdatepicker.impl.UtilDateModel;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
 
@@ -125,15 +126,8 @@ public class View {
         frame.getContentPane().setLayout(null);
 
 //        search.addActionListener(event -> {
-//            try {
-//                SearchResults.searchResultsImpl();
-//                SearchResults.searchResults();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+//            SearchResults.getSearchResultsView();
 //        });
-
-
     }
 
     public String getCity() {
