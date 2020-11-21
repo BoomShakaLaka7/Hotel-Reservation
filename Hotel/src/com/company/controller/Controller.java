@@ -64,18 +64,23 @@ public class Controller {
 
 
             List<Hotel> hotelList = new ArrayList<>();
+//            Object[] hotelList = new Object[40];
             int hotelsFound = 0;
             try {
-                for (int i = 1; i <= model.getHotels().size(); i++) {
+                for (int i = 0; i < 25; ++i) {
                     if (model.getHotels().get(i).getLocation().equals(city)) {
                         hotelList.add(model.getHotels().get(i));
+//                        hotelList[i] = model.getHotels().get(i);
                         hotelsFound += 1;
+//                        results.append(hotelList[i].toString() + "\n");
+//                        results.append(i + " " + hotelList.get(i).getLocation() + "\n");
+
                     }
                 }
-
-//                System.out.println(hotelsFound);
-                for(int i = 1; i <= hotelsFound; i++){
-                    results.append(i + " " + hotelList.get(i).getLocation() + "\n");
+                for (int i = 0; i < hotelsFound; i++) {
+                    results.append(i+1 + ": " +  hotelList.get(i).getHotel() + "  " + hotelList.get(i).getLocation() + "  "
+                            + hotelList.get(i).getPrice() + "  " + hotelList.get(i).getStar() + "  " + hotelList.get(i).getReview() + "\n");
+//                    results.append(hotelList[i].toString());
                 }
 
             } catch (IOException ioException) {
@@ -83,11 +88,10 @@ public class Controller {
             }
 
 
-
             panel.add(results);
             frame.add(panel);
 //            panel.setLayout(null);
+
         }
     }
-
 }
