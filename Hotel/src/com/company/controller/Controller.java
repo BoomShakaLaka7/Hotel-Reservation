@@ -3,15 +3,11 @@ package com.company.controller;
 import com.company.model.Hotel;
 import com.company.model.Model;
 import com.company.model.User;
-import com.company.view.SearchResults;
 import com.company.view.View;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,10 +27,10 @@ public class Controller {
         this.model = model;
 
         this.view.searchButtonListener(new searchButtonClick());
+//        this.view.filterButtonListener(new filterButtonClick());
     }
 
     class searchButtonClick implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
 //            try {
@@ -96,4 +92,12 @@ public class Controller {
 
         }
     }
+
+//    class filterButtonClick implements ActionListener{
+//
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//
+//        }
+//    }
 }

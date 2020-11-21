@@ -41,7 +41,7 @@ public class View {
         panel.setLayout(null);
 //        filterPanel.setBounds(0, 0, 1000, 300);
 //        filterPanel.setLayout(null);
-        JLabel l1, l2, l3, l4, l5, l6, l7, l8;
+        JLabel l1, l2, l4, l5, l6, l7, l8;
         UtilDateModel model = new UtilDateModel();
         UtilDateModel model2 = new UtilDateModel();
 
@@ -63,7 +63,7 @@ public class View {
         l1.setBounds(10, 0, 50, 50);
         l2 = new JLabel("Number of guests");
         l2.setBounds(150, 0, 150, 50);
-        l3 = new JLabel("Min Price");
+        JLabel l3 = new JLabel("Min Price");
         l3.setBounds(400,35,100,50);
         l4 = new JLabel("Max Price");
         l4.setBounds(570, 35, 100, 50);
@@ -75,21 +75,6 @@ public class View {
         l7.setBounds(740, 35, 70,50);
         l8 = new JLabel("Star");
         l8.setBounds(310, 35, 70, 50);
-        reviews.addItem("2");
-        reviews.addItem("2.5");
-        reviews.addItem("3");
-        reviews.addItem("3.5");
-        reviews.addItem("4");
-        reviews.addItem("4.5");
-        reviews.setEditable(true);
-        reviews.setBounds(790, 50, 50, 20);
-
-        star.addItem(2);
-        star.addItem(3);
-        star.addItem(4);
-        star.addItem(5);
-        star.setEditable(true);
-        star.setBounds(340, 50, 50, 20);
 
         panel.add(l1);
         city.setBounds(40, 15, 100, 20);
@@ -108,26 +93,44 @@ public class View {
 
         filter.setBounds(880, 50, 100, 20);
         panel.add(filter);
-        panel.add(l3);
-        minPrice.setBounds(460, 50, 100, 20);
-        panel.add(minPrice);
-        panel.add(l4);
-        maxPrice.setBounds(630, 50, 100, 20);
-        panel.add(maxPrice);
-        panel.add(l7);
-        panel.add(reviews);
-        panel.add(l8);
-        panel.add(star);
+        JPanel panel2 = new JPanel();
+        panel2.setLayout(null);
+
+        filter.addActionListener(event -> {
+            panel.add(l3);
+            minPrice.setBounds(460, 50, 100, 20);
+            panel.add(minPrice);
+            panel.add(l4);
+            maxPrice.setBounds(630, 50, 100, 20);
+            panel.add(maxPrice);
+            panel.add(l7);
+            panel.add(reviews);
+            panel.add(l8);
+            panel.add(star);
+
+            reviews.addItem("2");
+            reviews.addItem("2.5");
+            reviews.addItem("3");
+            reviews.addItem("3.5");
+            reviews.addItem("4");
+            reviews.addItem("4.5");
+            reviews.setEditable(true);
+            reviews.setBounds(790, 50, 50, 20);
+
+            star.addItem(2);
+            star.addItem(3);
+            star.addItem(4);
+            star.addItem(5);
+            star.setEditable(true);
+            star.setBounds(340, 50, 50, 20);
+
+            frame.repaint();
+        });
 
         frame.getContentPane().add(panel);
-//        frame.getContentPane().add(filterPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 1000, 300);
         frame.getContentPane().setLayout(null);
-
-//        search.addActionListener(event -> {
-//            SearchResults.getSearchResultsView();
-//        });
     }
 
     public String getCity() {
