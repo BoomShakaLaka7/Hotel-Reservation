@@ -50,41 +50,71 @@ public class Controller {
             frame.setSize(550, 500);
             frame.setTitle("Search Results");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            List<Hotel> hotelList = new ArrayList<>();
+            int hotelsFound = 0;
 
 //            results.setBounds(10, 10, 400, 350);
             results.setEditable(false);
 
             results.setText("");
             String city = view.getCity();
-//            Double review = Double.parseDouble(view.getReview());
-//            int star = view.getStar();
-//            int price = view.getMinPrice();
 
+            if(view.filtered){
+                Double review = Double.parseDouble(view.getReview());
+                int star = view.getStar();
+                int maxPrice = view.getMaxPrice();
+                int minPrice = view.getMinPrice();
 
-            List<Hotel> hotelList = new ArrayList<>();
-//            Object[] hotelList = new Object[40];
-            int hotelsFound = 0;
-            try {
-                for (int i = 0; i < 25; ++i) {
-                    if (model.getHotels().get(i).getLocation().equals(city)) {
-                        hotelList.add(model.getHotels().get(i));
+                try {
+                    for (int i = 0; i < 25; ++i) {
+                        if (model.getHotels().get(i).getLocation().equals(city)
+                        && model.getHotels().get(i).getStar() == star && Double.parseDouble(model.getHotels().get(i).getReview()) >= review
+                                && model.getHotels().get(i).getPrice() <= maxPrice && model.getHotels().get(i).getPrice() >= minPrice
+                        ) {
+                            hotelList.add(model.getHotels().get(i));
 //                        hotelList[i] = model.getHotels().get(i);
-                        hotelsFound += 1;
+                            hotelsFound += 1;
 //                        results.append(hotelList[i].toString() + "\n");
 //                        results.append(i + " " + hotelList.get(i).getLocation() + "\n");
 
+                        }
                     }
-                }
-                results.append("    Hotel Name   \t" + "Location    \t" + "Price   \t" + "Star   \t" + "Reviews" + "\n\n");  for (int i = 0; i < hotelsFound; i++) {
-                    results.append(i+1 + ": " +  hotelList.get(i).getHotel() + "\t" + hotelList.get(i).getLocation() + "\t"
-                            + hotelList.get(i).getPrice() + "\t" + hotelList.get(i).getStar() + "\t" + hotelList.get(i).getReview() + "\n");
+                    results.append("    Hotel Name   \t" + "Location    \t" + "Price   \t" + "Star   \t" + "Reviews" + "\n\n");
+                    for (int i = 0; i < hotelsFound; i++) {
+                        results.append(i+1 + ": " +  hotelList.get(i).getHotel() + "\t" + hotelList.get(i).getLocation() + "\t"
+                                + hotelList.get(i).getPrice() + "\t" + hotelList.get(i).getStar() + "\t" + hotelList.get(i).getReview() + "\n");
 //                    results.append(hotelList[i].toString());
-                }
+                    }
 
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
 
+//            Object[] hotelList = new Object[40];
+            else {
+                try {
+                    for (int i = 0; i < 25; ++i) {
+                        if (model.getHotels().get(i).getLocation().equals(city)) {
+                            hotelList.add(model.getHotels().get(i));
+//                        hotelList[i] = model.getHotels().get(i);
+                            hotelsFound += 1;
+//                        results.append(hotelList[i].toString() + "\n");
+//                        results.append(i + " " + hotelList.get(i).getLocation() + "\n");
+
+                        }
+                    }
+                    results.append("    Hotel Name   \t" + "Location    \t" + "Price   \t" + "Star   \t" + "Reviews" + "\n\n");
+                    for (int i = 0; i < hotelsFound; i++) {
+                        results.append(i + 1 + ": " + hotelList.get(i).getHotel() + "\t" + hotelList.get(i).getLocation() + "\t"
+                                + hotelList.get(i).getPrice() + "\t" + hotelList.get(i).getStar() + "\t" + hotelList.get(i).getReview() + "\n");
+//                    results.append(hotelList[i].toString());
+                    }
+
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
 
             panel.add(results);
             frame.add(panel);

@@ -22,12 +22,9 @@ public class View {
     private JTextField hotelName = new JTextField(10);
     private JComboBox<String> reviews = new JComboBox<>();
     private JComboBox<Integer> star = new JComboBox<>();
-
+    public boolean filtered = false;
     private JDatePickerImpl datePicker;
     private JDatePickerImpl datePicker2;
-
-    private JTextField zipCodeTextField;
-    private JTextField countryTextField;
 
     public View() {
         initialize();
@@ -123,6 +120,8 @@ public class View {
             star.addItem(5);
             star.setEditable(true);
             star.setBounds(340, 50, 50, 20);
+
+            filtered = true;
 
             frame.repaint();
         });
