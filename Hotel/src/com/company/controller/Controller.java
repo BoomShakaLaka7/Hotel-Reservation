@@ -14,11 +14,14 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
     private View view;
     private User user;
     private Model model;
+//    public List<Hotel> hotelList = new ArrayList<>();
+
 //    private SearchResults searchResults;
 
     public Controller(View view, User user, Model model) {
@@ -34,6 +37,16 @@ public class Controller {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+//            try {
+//                System.out.println(model.getHotels().size());
+//                System.out.println(model.getHotels().get(0).getLocation());
+//                System.out.println(model.getHotels().get(1));
+//                System.out.println(model.getHotels().get(2));
+//                System.out.println(model.getHotels().get(3));
+//            } catch (IOException ioException) {
+//                ioException.printStackTrace();
+//            }
+
             JFrame frame = new JFrame();
             JPanel panel = new JPanel();
             JTextArea results = new JTextArea();
@@ -49,23 +62,27 @@ public class Controller {
             int star = view.getStar();
             int price = view.getMinPrice();
 
-            ArrayList<Hotel> hotelList = new ArrayList<>();
+
+            List<Hotel> hotelList = new ArrayList<>();
             int hotelsFound = 0;
             try {
-                for (int i = 0; i < model.getHotels().size(); i++) {
+                for (int i = 1; i <= model.getHotels().size(); i++) {
                     if (model.getHotels().get(i).getLocation().equals(city)) {
                         hotelList.add(model.getHotels().get(i));
                         hotelsFound += 1;
                     }
                 }
+
+//                System.out.println(hotelsFound);
+                for(int i = 1; i <= hotelsFound; i++){
+                    results.append(i + " " + hotelList.get(i).getLocation() + "\n");
+                }
+
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
 
-            for(int i = 0; i < hotelsFound; i++){
-                results.append("n" + hotelList.get(i).getLocation() + "\n");
-//                results.append( "$" + model.getHotels().size());
-            }
+
 
             panel.add(results);
             frame.add(panel);

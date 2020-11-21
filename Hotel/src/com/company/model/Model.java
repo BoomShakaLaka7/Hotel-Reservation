@@ -19,11 +19,12 @@ public class Model {
         while((line = inputFile.readLine()) != null){
             String[] values = line.split(", ");
 
-            for(String val: values){
+//            for(String val: values){
                     hotels.add(new Hotel(values[0], values[1], Integer.parseInt(values[2]), Integer.parseInt(values[3]), values[4]));
-                }
+//                }
         }
-        inputFile.close();
+//        inputFile.close();
+        file.close();
         return hotels;
     }
 

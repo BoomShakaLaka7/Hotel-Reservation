@@ -1,3 +1,4 @@
+
 Hilton Union Square, San Francisco, 135, 4, 4.2
 Hilton Financial District, San Francisco, 95, 4, 4.3
 Marriott Marquis, San Francisco, 169, 5, 4.4
