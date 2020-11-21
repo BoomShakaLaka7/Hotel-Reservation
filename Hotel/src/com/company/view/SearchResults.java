@@ -24,11 +24,6 @@ public class SearchResults extends JFrame{
         setTitle("Search Results");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-//        setContentPane(panel);
-//        panel.setLayout(null);
-        setSize(500, 500);
-        results = new JTextArea();
-        results.setText("");
 
     }
 }

@@ -49,13 +49,15 @@ public class Controller {
 
             JFrame frame = new JFrame();
             JPanel panel = new JPanel();
-            JTextArea results = new JTextArea();
+            JTextArea results = new JTextArea(20, 6);
             frame.setVisible(true);
-            frame.setSize(500, 500);
+            frame.setSize(550, 500);
             frame.setTitle("Search Results");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+//            results.setBounds(10, 10, 400, 350);
             results.setEditable(false);
+
             results.setText("");
             String city = view.getCity();
             Double review = Double.parseDouble(view.getReview());
@@ -77,9 +79,9 @@ public class Controller {
 
                     }
                 }
-                for (int i = 0; i < hotelsFound; i++) {
-                    results.append(i+1 + ": " +  hotelList.get(i).getHotel() + "  " + hotelList.get(i).getLocation() + "  "
-                            + hotelList.get(i).getPrice() + "  " + hotelList.get(i).getStar() + "  " + hotelList.get(i).getReview() + "\n");
+                results.append("    Hotel Name   \t" + "Location    \t" + "Price   \t" + "Star   \t" + "Reviews" + "\n\n");  for (int i = 0; i < hotelsFound; i++) {
+                    results.append(i+1 + ": " +  hotelList.get(i).getHotel() + "\t" + hotelList.get(i).getLocation() + "\t"
+                            + hotelList.get(i).getPrice() + "\t" + hotelList.get(i).getStar() + "\t" + hotelList.get(i).getReview() + "\n");
 //                    results.append(hotelList[i].toString());
                 }
 
