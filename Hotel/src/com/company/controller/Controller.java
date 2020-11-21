@@ -102,9 +102,6 @@ public class Controller {
                             hotelList.add(model.getHotels().get(i));
 //                        hotelList[i] = model.getHotels().get(i);
                             hotelsFound += 1;
-//                        results.append(hotelList[i].toString() + "\n");
-//                        results.append(i + " " + hotelList.get(i).getLocation() + "\n");
-
                         }
                     }
                     results.append("    Hotel Name   \t" + "Location    \t" + "Price   \t" + "Star   \t" + "Reviews" + "\n\n");
