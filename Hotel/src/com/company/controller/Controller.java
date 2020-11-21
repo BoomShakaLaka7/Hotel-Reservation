@@ -56,9 +56,9 @@ public class Controller {
 
             results.setText("");
             String city = view.getCity();
-            Double review = Double.parseDouble(view.getReview());
-            int star = view.getStar();
-            int price = view.getMinPrice();
+//            Double review = Double.parseDouble(view.getReview());
+//            int star = view.getStar();
+//            int price = view.getMinPrice();
 
 
             List<Hotel> hotelList = new ArrayList<>();
