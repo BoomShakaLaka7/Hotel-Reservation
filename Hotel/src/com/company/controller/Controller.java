@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Controller {
@@ -58,6 +59,8 @@ public class Controller {
 
             results.setText("");
             String city = view.getCity();
+            Date checkIn = view.getCheckIn();
+            Date checkOut = view.getCheckOut();
 
             if(view.filtered){
                 Double review = Double.parseDouble(view.getReview());
@@ -67,7 +70,7 @@ public class Controller {
 
                 try {
                     for (int i = 0; i < 25; ++i) {
-                        if (model.getHotels().get(i).getLocation().equals(city)
+                        if (model.getHotels().get(i).getLocation().equals(city) && checkIn.before(checkOut)
                         && model.getHotels().get(i).getStar() == star && Double.parseDouble(model.getHotels().get(i).getReview()) >= review
                                 && model.getHotels().get(i).getPrice() <= maxPrice && model.getHotels().get(i).getPrice() >= minPrice
                         ) {
@@ -95,7 +98,7 @@ public class Controller {
             else {
                 try {
                     for (int i = 0; i < 25; ++i) {
-                        if (model.getHotels().get(i).getLocation().equals(city)) {
+                        if (model.getHotels().get(i).getLocation().equals(city) && checkIn.before(checkOut)) {
                             hotelList.add(model.getHotels().get(i));
 //                        hotelList[i] = model.getHotels().get(i);
                             hotelsFound += 1;
