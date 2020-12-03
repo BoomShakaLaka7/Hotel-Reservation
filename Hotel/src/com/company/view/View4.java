@@ -1,6 +1,8 @@
 package com.company.view;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class View4 {
 
@@ -44,13 +46,26 @@ public class View4 {
         cancelButton.setBounds(600, 100,200, 25);
         panel.add(cancelButton);
 
+        cancelButton.addActionListener(new ActionListener() {
+                                           @Override
+                                           public void actionPerformed(ActionEvent e) {
+
+                                               // TODO Auto-generated method stub
+                                               View view = new View();
+                                               frame.setVisible(false);
+                                           }
+
+                                       }
+            );
+
         frame.getContentPane().add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(100, 100, 1000, 300);
         frame.getContentPane().setLayout(null);
     }
 
-    public void setName(String username){ name.setText(username); }
+    public void setName(String username){
+        name.setText(username); }
 
     // Generates random int value from 1000000 - 9999999
     public void setAccountNumber(){
@@ -58,5 +73,9 @@ public class View4 {
         accountNumber.setText(Integer.toString(random_int));
     }
 
-    public void setReservation(){}
+    public void setReservation(){
+        //Hotel test = new Hotel();
+
+    }
+
 }
