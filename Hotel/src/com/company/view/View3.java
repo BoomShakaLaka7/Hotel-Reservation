@@ -1,6 +1,11 @@
 package com.company.view;
 
+import com.company.model.UserDatabase;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.util.HashMap;
+import java.util.Map;
 
 public class View3 {
 
@@ -93,5 +98,51 @@ public class View3 {
     public void setSignUpPassword(String password){ signUpPassword.setText(password); }
 
     public void setSignUpPasswordConfirmation(String password){ signUpPasswordConfirmation.setText(password); }
+
+    private void setAction(){
+
+        loginButton.addActionListener(this);
+        signUpButton.addActionListener(this);
+
+    }
+    public void actionPerformed(ActionEvent e){
+        if(e.getSource() == loginButton){
+
+            //check if username is exist
+            if(UserDatabase.getUser_map().get(getLoginUsername()) == null){
+                JOptionPane.showMessageDialog(frame,"this username does not exist");
+            }
+            else{ //check if the right password
+                if(UserDatabase.getUser_map().get(getLoginUsername()).doesPasswordEqual(getLoginPassword())){
+                    JOptionPane.showMessageDialog(frame,"login successfully");
+                }
+                else{ // notify wrong password
+                    JOptionPane.showMessageDialog(frame,"wrong password, please try again");
+                }
+            }
+        }
+
+        if(e.getSource() == signUpButton){
+
+            //check if username already exist
+            if(UserDatabase.getUser_map().get(getSignUpUsername()) != null){
+                JOptionPane.showMessageDialog(frame,"this username already existed, try something else");
+            }
+
+            else{// if then check if password and confirmation is the same
+                if(signUpPassword.equals(signUpPasswordConfirmation)){
+                    User newUser = User(signUpName,signUpUsername,signUpPassword);
+                    UserDatabase.getUser_map().put(newUser.getUserName(),newUser);
+                }
+
+                else{
+                    JOptionPane.showMessageDialog(frame,"passwords does not match, try again");
+                }
+
+            }
+
+        }
+
+    }
 
 }
