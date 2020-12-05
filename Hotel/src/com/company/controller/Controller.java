@@ -9,26 +9,32 @@ import com.company.view.View2;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
+/**
+ * Controller class
+ */
 public class Controller {
     private View view;
     private User user;
     private Model model;
 
+    /**
+     *Constructor for Controller
+     * @param view sets View
+     * @param user sets User
+     * @param model sets Model
+     */
     public Controller(View view, User user, Model model) {
         this.view = view;
         this.user = user;
-//        this.searchResults = searchResults;
         this.model = model;
 
         this.view.searchButtonListener(new searchButtonClick());
-//        this.view.filterButtonListener(new filterButtonClick());
     }
 
+    /**
+     * displays the View2 when search button clicked
+     */
     class searchButtonClick implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

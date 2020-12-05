@@ -12,6 +12,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+/**
+ * CalendarDemo class for Calendar UI
+ */
 public class CalendarDemo extends JFrame implements ItemListener
 {
     JPanel p1, p2;
@@ -20,6 +23,11 @@ public class CalendarDemo extends JFrame implements ItemListener
     int days[]={31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     String weekdays[] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
     String months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+
+    /**
+     * Constructor for CalendarDemo
+     * @param title
+     */
     public CalendarDemo(String title)
     {
         super();
@@ -57,10 +65,6 @@ public class CalendarDemo extends JFrame implements ItemListener
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
-//    public static void main(String args[])
-//    {
-//        CalendarDemo frame = new CalendarDemo("Calendar");
-//    }
 
     @Override
     public void itemStateChanged(ItemEvent e)
@@ -71,6 +75,11 @@ public class CalendarDemo extends JFrame implements ItemListener
         }
     }
 
+    /**
+     * UI for Calendar
+     * @param inputMonth
+     * @param inputYear
+     */
     public void drawCalendar(String inputMonth, int inputYear)
     {
         p2.removeAll();

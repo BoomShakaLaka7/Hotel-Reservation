@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
 
+/**
+ * View class represents the main page
+ */
 public class View {
 
     private JFrame frame = new JFrame("Hotel Reservation System");
@@ -26,18 +29,21 @@ public class View {
     private JDatePickerImpl datePicker;
     private JDatePickerImpl datePicker2;
 
+    /**
+     * Constructor for View
+     */
     public View() {
         initialize();
         frame.setVisible(true);
     }
 
+    /**
+     * GUI of the Main page
+     */
     public void initialize(){
         JPanel panel = new JPanel();
-//        JPanel filterPanel = new JPanel();
         panel.setBounds(0, 0, 1000, 300);
         panel.setLayout(null);
-//        filterPanel.setBounds(0, 0, 1000, 300);
-//        filterPanel.setLayout(null);
         JLabel l1, l2, l4, l5, l6, l7, l8;
         UtilDateModel model = new UtilDateModel();
         UtilDateModel model2 = new UtilDateModel();
@@ -132,72 +138,136 @@ public class View {
         frame.getContentPane().setLayout(null);
     }
 
+    /**
+     * getter for city entered by the user
+     * @return
+     */
     public String getCity() {
         return city.getText();
     }
 
+    /**
+     * getter for number of guests entered by the user
+     * @return
+     */
     public int getGuests() {
         return Integer.parseInt(guests.getText());
     }
 
+    /**
+     * getter for min price entered by the user
+     * @return
+     */
     public int getMinPrice() {
         return Integer.parseInt(minPrice.getText());
     }
 
+    /**
+     * getter for max price entered by the user
+     * @return
+     */
     public int getMaxPrice() {
         return Integer.parseInt(maxPrice.getText());
     }
 
+    /**
+     * getter for check in date entered by the user
+     * @return
+     */
     public Date getCheckIn(){
         return (Date) datePicker.getModel().getValue();
     }
 
+    /**
+     * getter for check out date entered by the user
+     * @return
+     */
     public Date getCheckOut(){
         return (Date) datePicker2.getModel().getValue();
     }
 
+    /**
+     * getter for hotel review entered by the user
+     * @return
+     */
     public String getReview(){
         return reviews.getSelectedItem().toString();
     }
 
+    /**
+     * getter for hotel star entered by the user
+     * @return
+     */
     public int getStar() { return (int) star.getSelectedItem(); }
 
+    /**
+     * getter for hotel name entered by the user
+     * @return
+     */
     public String getHotelName() {
         return hotelName.getText();
     }
 
+    /**
+     * Listens for search button
+     * @param searchButton
+     */
     public void searchButtonListener(ActionListener searchButton){
         search.addActionListener(searchButton);
     }
 
-    public void filterButtonListener(ActionListener filterButton){
-        filter.addActionListener(filterButton);
-    }
-
+    /**
+     * setter for city
+     * @param Pcity
+     */
     public void setCity(String Pcity) {
         city.setText(Pcity);
     }
 
+    /**
+     * setter for number of guests
+     * @param Pguests
+     */
     public void setGuests(int Pguests) {
         guests.setText(Integer.toString(Pguests));
     }
 
+    /**
+     * setter for min price
+     * @param PminPrice
+     */
     public void setMinPrice(int PminPrice) {
         minPrice.setText(Integer.toString(PminPrice));
     }
 
+    /**
+     * setter for max price
+     * @param PmaxPrice
+     */
     public void setMaxPrice(int PmaxPrice) {
         maxPrice.setText(Integer.toString(PmaxPrice));
     }
 
+    /**
+     * setter for reviews
+     * @param Previews
+     */
     public void setReviews(String Previews) {
         reviews.setSelectedIndex(Integer.parseInt(Previews));
     }
 
+    /**
+     * setter for star
+     * @param Pstar
+     */
     public void setStar(int Pstar) {
         star.setSelectedIndex(Pstar);
     }
 
+    /**
+     * setter for hotel name
+     * @param Pname
+     */
     public void setHotelName(String Pname){
         hotelName.setText(Pname);
     }

@@ -5,10 +5,18 @@ import com.company.view.View;
 import java.io.*;
 import java.util.*;
 
+/**
+ * Model class
+ */
 public class Model {
-    public ArrayList<Hotel> hotels = new ArrayList<>();
-//    public static ArrayList<Hotel> sortedHotels = new ArrayList<>();
 
+    public ArrayList<Hotel> hotels = new ArrayList<>();
+
+    /**
+     * Gets hotels from the file and stores it in the ArrayList
+     * @return ArrayList
+     * @throws IOException
+     */
     public ArrayList<Hotel> getHotels() throws IOException {
         FileReader file = new FileReader("Hotel.txt");
         BufferedReader inputFile = new BufferedReader(file);
@@ -18,11 +26,8 @@ public class Model {
         while((line = inputFile.readLine()) != null){
             String[] values = line.split(", ");
 
-//            for(String val: values){
                     hotels.add(new Hotel(values[0], values[1], Integer.parseInt(values[2]), Integer.parseInt(values[3]), values[4]));
-//                }
         }
-//        inputFile.close();
         file.close();
         return hotels;
     }

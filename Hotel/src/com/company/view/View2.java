@@ -13,22 +13,27 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * View2 displays sorted hotel list
+ */
 public class View2 {
     JFrame frame = new JFrame();
     JPanel panel = new JPanel();
-    //    Model model;
-//    View view = new View();
+
     JTextArea results = new JTextArea(20, 6);
     List<Hotel> hotelList = new ArrayList<>();
     int hotelsFound = 0;
     JButton reserveButton = new JButton("Reserve");
-    //JTextArea selectedFieldName = new JTextArea();
 
     JTextField enteredValue = new JTextField("Enter Selected Hotel ID");
 
+    /**
+     * Constructor for View2
+     * @param model
+     * @param view
+     */
     public View2(Model model, View view) {
-        //            results.setBounds(10, 10, 400, 350);
-//        this.model = model;
+
         frame.setVisible(true);
         frame.setSize(550, 500);
         frame.setTitle("Search Results");
@@ -37,6 +42,9 @@ public class View2 {
         results.setEditable(false);
         results.setText("");
 
+        /**
+         * Action Listener for reserve button
+         */
         reserveButton.addActionListener(new ActionListener() {
 
             @Override
@@ -50,8 +58,6 @@ public class View2 {
                     }
                 }
             }
-
-
         }
 
         );
@@ -59,6 +65,7 @@ public class View2 {
         String city = view.getCity();
         Date checkIn = view.getCheckIn();
         Date checkOut = view.getCheckOut();
+        Date today = new Date();
 
         if(view.filtered){
             Double review = Double.parseDouble(view.getReview());
@@ -68,23 +75,18 @@ public class View2 {
 
             try {
                 for (int i = 0; i < 25; ++i) {
-                    if (model.getHotels().get(i).getLocation().equals(city) && checkIn.before(checkOut)
+                    if (model.getHotels().get(i).getLocation().equals(city) && checkIn.before(checkOut) && checkIn.after(today)
                             && model.getHotels().get(i).getStar() == star && Double.parseDouble(model.getHotels().get(i).getReview()) >= review
                             && model.getHotels().get(i).getPrice() <= maxPrice && model.getHotels().get(i).getPrice() >= minPrice
                     ) {
                         hotelList.add(model.getHotels().get(i));
-//                        hotelList[i] = model.getHotels().get(i);
                         hotelsFound += 1;
-//                        results.append(hotelList[i].toString() + "\n");
-//                        results.append(i + " " + hotelList.get(i).getLocation() + "\n");
-
                     }
                 }
                 results.append("    Hotel Name   \t" + "Location    \t" + "Price   \t" + "Star   \t" + "Reviews" + "\n\n");
                 for (int i = 0; i < hotelsFound; i++) {
                     results.append(i+1 + ": " +  hotelList.get(i).getHotel() + "\t" + hotelList.get(i).getLocation() + "\t"
                             + hotelList.get(i).getPrice() + "\t" + hotelList.get(i).getStar() + "\t" + hotelList.get(i).getReview() + "\n");
-//                    results.append(hotelList[i].toString());
                 }
 
             } catch (IOException ioException) {
@@ -92,13 +94,12 @@ public class View2 {
             }
         }
 
-//            Object[] hotelList = new Object[40];
         else {
             try {
                 for (int i = 0; i < 25; ++i) {
-                    if (model.getHotels().get(i).getLocation().equals(city) && checkIn.before(checkOut)) {
+                    if (model.getHotels().get(i).getLocation().equals(city) && checkIn.before(checkOut)
+                            && checkIn.after(today)) {
                         hotelList.add(model.getHotels().get(i));
-//                        hotelList[i] = model.getHotels().get(i);
                         hotelsFound += 1;
                     }
                 }
@@ -106,7 +107,6 @@ public class View2 {
                 for (int i = 0; i < hotelsFound; i++) {
                     results.append(i + 1 + ": " + hotelList.get(i).getHotel() + "\t" + hotelList.get(i).getLocation() + "\t"
                             + hotelList.get(i).getPrice() + "\t" + hotelList.get(i).getStar() + "\t" + hotelList.get(i).getReview() + "\n");
-//                    results.append(hotelList[i].toString());
                 }
 
             } catch (IOException ioException) {
@@ -115,13 +115,10 @@ public class View2 {
         }
 
         panel.add(results);
-        //panel.add(selectedFieldName);
         panel.add(enteredValue);
         panel.add(reserveButton);
         frame.add(panel);
 
-
-//            panel.setLayout(null);
     }
 
 }
