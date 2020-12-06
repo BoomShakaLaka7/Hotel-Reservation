@@ -10,6 +10,9 @@ import java.util.*;
  */
 public class Model {
 
+    /**
+     * stores list of hotels from txt file
+     */
     public ArrayList<Hotel> hotels = new ArrayList<>();
 
     /**

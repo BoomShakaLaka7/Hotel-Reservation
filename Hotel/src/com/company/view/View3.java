@@ -15,7 +15,9 @@ public class View3 {
         private JLabel headDescription, loginDescription, signUpDescription;
         private JTextField loginUsername = new JTextField("Username", 10);
 
-
+        /**
+         * gets user information to login to the account
+         */
         private JTextField loginPassword = new JTextField("Password", 10);
         private JTextField signUpName = new JTextField("name", 10);
         private JTextField signUpUsername = new JTextField("Username", 10);
@@ -128,7 +130,7 @@ public class View3 {
 
         /**
          * getter for login username
-         * @return
+         * @return String
          */
         public String getLoginUsername() {
                 return loginUsername.getText();
@@ -136,7 +138,7 @@ public class View3 {
 
         /**
          * getter for login password
-         * @return
+         * @return String
          */
         public String getLoginPassword() {
                 return loginPassword.getText();
@@ -144,7 +146,7 @@ public class View3 {
 
         /**
          * getter for signed up name
-         * @return
+         * @return String
          */
         public String getSignUpName() {
                 return signUpName.getText();
@@ -152,7 +154,7 @@ public class View3 {
 
         /**
          * getter for signed up username
-         * @return
+         * @return String
          */
         public String getSignUpUsername() {
                 return signUpUsername.getText();
@@ -160,7 +162,7 @@ public class View3 {
 
         /**
          * getter for signed up password
-         * @return
+         * @return String
          */
         public String getSignUpPassword() {
                 return signUpPassword.getText();
@@ -168,7 +170,7 @@ public class View3 {
 
         /**
          * getter for password confirmation
-         * @return
+         * @return String
          */
         public String getSignUpPasswordConfirmation() {
                 return signUpPasswordConfirmation.getText();

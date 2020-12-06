@@ -140,7 +140,7 @@ public class View {
 
     /**
      * getter for city entered by the user
-     * @return
+     * @return String
      */
     public String getCity() {
         return city.getText();
@@ -148,7 +148,7 @@ public class View {
 
     /**
      * getter for number of guests entered by the user
-     * @return
+     * @return int
      */
     public int getGuests() {
         return Integer.parseInt(guests.getText());
@@ -156,7 +156,7 @@ public class View {
 
     /**
      * getter for min price entered by the user
-     * @return
+     * @return int
      */
     public int getMinPrice() {
         return Integer.parseInt(minPrice.getText());
@@ -164,7 +164,7 @@ public class View {
 
     /**
      * getter for max price entered by the user
-     * @return
+     * @return int
      */
     public int getMaxPrice() {
         return Integer.parseInt(maxPrice.getText());
@@ -172,7 +172,7 @@ public class View {
 
     /**
      * getter for check in date entered by the user
-     * @return
+     * @return Date
      */
     public Date getCheckIn(){
         return (Date) datePicker.getModel().getValue();
@@ -180,7 +180,7 @@ public class View {
 
     /**
      * getter for check out date entered by the user
-     * @return
+     * @return Date
      */
     public Date getCheckOut(){
         return (Date) datePicker2.getModel().getValue();
@@ -188,7 +188,7 @@ public class View {
 
     /**
      * getter for hotel review entered by the user
-     * @return
+     * @return String
      */
     public String getReview(){
         return reviews.getSelectedItem().toString();
@@ -196,13 +196,13 @@ public class View {
 
     /**
      * getter for hotel star entered by the user
-     * @return
+     * @return int
      */
     public int getStar() { return (int) star.getSelectedItem(); }
 
     /**
      * getter for hotel name entered by the user
-     * @return
+     * @return String
      */
     public String getHotelName() {
         return hotelName.getText();

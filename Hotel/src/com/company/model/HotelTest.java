@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Testing the input taken from txt file
+ */
 public class HotelTest {
 
     /**
