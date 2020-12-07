@@ -10,6 +10,9 @@ import java.util.*;
  */
 public class Model {
 
+    /**
+     * stores list of hotels from txt file
+     */
     public ArrayList<Hotel> hotels = new ArrayList<>();
 
     /**
@@ -32,5 +35,13 @@ public class Model {
         return hotels;
     }
 
+//    public String selectedHotel(List<Hotel> displayedHotels, String index) {
+//        String selectedHotel = "";
+//        int in = Integer.parseInt(index);
+//        for(int i = 0; i < displayedHotels.size(); i++){
+//            selectedHotel = displayedHotels.get(in).getHotel();
+//        }
+//        return selectedHotel;
+//    }
 
 }

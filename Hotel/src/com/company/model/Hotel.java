@@ -3,7 +3,8 @@ package com.company.model;
 /**
  * Hotel class
  */
-public class Hotel {
+public class Hotel implements Hotels{
+
     private String hotel;
     private String location;
     private int price;
@@ -12,11 +13,11 @@ public class Hotel {
 
     /**
      * Constructor for Hotel class
-     * @param hotel
-     * @param location
-     * @param price
-     * @param star
-     * @param review
+     * @param hotel holds the name of the hotel
+     * @param location holds the location of the hotel
+     * @param price stores the price of the hotel
+     * @param star stores the star of the hotel
+     * @param review stores review of the hotel
      */
     public Hotel(String hotel, String location, int price, int star, String review) {
         this.hotel = hotel;
@@ -28,7 +29,7 @@ public class Hotel {
 
     /**
      * getter for hotel name
-     * @return
+     * @return String
      */
     public String getHotel() {
         return hotel;
@@ -36,7 +37,7 @@ public class Hotel {
 
     /**
      * getter for location
-     * @return
+     * @return String
      */
     public String getLocation() {
         return location;
@@ -44,7 +45,7 @@ public class Hotel {
 
     /**
      * getter for hotel price
-     * @return
+     * @return int
      */
     public int getPrice() {
         return price;
@@ -52,7 +53,7 @@ public class Hotel {
 
     /**
      * getter for star of the hotel
-     * @return
+     * @return int
      */
     public int getStar() {
         return star;
@@ -60,7 +61,7 @@ public class Hotel {
 
     /**
      * getter for review of the hotel
-     * @return
+     * @return String
      */
     public String getReview(){
         return review;

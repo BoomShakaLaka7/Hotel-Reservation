@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,13 +20,29 @@ import java.util.List;
 public class View2 {
     JFrame frame = new JFrame();
     JPanel panel = new JPanel();
+    Date checkIn;
+    Date checkOut;
+    public int index;
+    int guests;
 
     JTextArea results = new JTextArea(20, 6);
-    List<Hotel> hotelList = new ArrayList<>();
+    public List<Hotel> hotelList = new ArrayList<>();
     int hotelsFound = 0;
     JButton reserveButton = new JButton("Reserve");
 
     JTextField enteredValue = new JTextField("Enter Selected Hotel ID");
+
+    public List<Hotel> getHotelList() {
+        return hotelList;
+    }
+
+    public Date getCheckIn() {
+        return checkIn;
+    }
+
+    public Date getCheckOut() {
+        return checkOut;
+    }
 
     /**
      * Constructor for View2
@@ -42,29 +59,10 @@ public class View2 {
         results.setEditable(false);
         results.setText("");
 
-        /**
-         * Action Listener for reserve button
-         */
-        reserveButton.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                // TODO Auto-generated method stub
-                for(int i = 0; i<hotelsFound; i++) {
-                    if(Integer.parseInt(enteredValue.getText()) == i) {
-                        View3 view3 = new View3();
-                    frame.setVisible(false);
-                    }
-                }
-            }
-        }
-
-        );
-
         String city = view.getCity();
-        Date checkIn = view.getCheckIn();
-        Date checkOut = view.getCheckOut();
+        checkIn = view.getCheckIn();
+        checkOut = view.getCheckOut();
+        guests = view.getGuests();
         Date today = new Date();
 
         if(view.filtered){
@@ -101,11 +99,13 @@ public class View2 {
                             && checkIn.after(today)) {
                         hotelList.add(model.getHotels().get(i));
                         hotelsFound += 1;
+                        index = i;
+//                        System.out.println(i + " " + model.getHotels().get(i));
                     }
                 }
                 results.append("    Hotel Name   \t" + "Location    \t" + "Price   \t" + "Star   \t" + "Reviews" + "\n\n");
                 for (int i = 0; i < hotelsFound; i++) {
-                    results.append(i + 1 + ": " + hotelList.get(i).getHotel() + "\t" + hotelList.get(i).getLocation() + "\t"
+                    results.append(i + ": " + hotelList.get(i).getHotel() + "\t" + hotelList.get(i).getLocation() + "\t"
                             + hotelList.get(i).getPrice() + "\t" + hotelList.get(i).getStar() + "\t" + hotelList.get(i).getReview() + "\n");
                 }
 
@@ -114,11 +114,31 @@ public class View2 {
             }
         }
 
+
         panel.add(results);
         panel.add(enteredValue);
         panel.add(reserveButton);
         frame.add(panel);
 
+    }
+
+    public void reserveButtonListener(ActionListener reserveButtonL){
+        reserveButton.addActionListener(reserveButtonL);
+    }
+
+    public int getHotelsFound(){return hotelsFound;}
+
+    public String getEnteredValue(){return enteredValue.getText();}
+
+    public String getHotelName(){
+        int ind = Integer.parseInt(getEnteredValue());
+        return hotelList.get(ind).getHotel();
+    }
+
+    public int getHotelPrice(){
+        int ind = Integer.parseInt(getEnteredValue());
+        int diff = (int) (checkOut.getTime() - checkIn.getTime())/ (1000 * 60 * 60 * 24);
+        return hotelList.get(ind).getPrice() * diff * guests;
     }
 
 }

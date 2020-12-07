@@ -1,21 +1,33 @@
 package com.company.view;
 
+import com.company.model.Hotel;
+import com.company.model.Model;
+import com.company.model.User;
+
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * View3 class displays login/signup page
  */
-public class View3 {
+public class View3 extends View2{
 
         private JFrame frame = new JFrame("Authentication");
         private JLabel headDescription, loginDescription, signUpDescription;
         private JTextField loginUsername = new JTextField("Username", 10);
+//        private int hotelIndex;
+        public User user = new User(this);
+        JButton loginButton = new JButton("Login");
+        JButton signUpButton = new JButton("Sign-Up");
+//        public List<Hotel> hotelArrayList;
+        Model model;
+        View view;
 
-
+        /**
+         * gets user information to login to the account
+         */
         private JTextField loginPassword = new JTextField("Password", 10);
         private JTextField signUpName = new JTextField("name", 10);
         private JTextField signUpUsername = new JTextField("Username", 10);
@@ -25,7 +37,15 @@ public class View3 {
         /**
          * Constructor for View3
          */
-        public View3() {
+//        public View3(String hotelIndex, List<Hotel> hotelsList) {
+//                initialize();
+//                frame.setVisible(true);
+//                this.hotelIndex = Integer.parseInt(hotelIndex);
+//                this.hotelArrayList = hotelsList;
+//        }
+
+        public View3(Model model, View view) {
+                super(model, view);
                 initialize();
                 frame.setVisible(true);
         }
@@ -54,23 +74,7 @@ public class View3 {
                 loginPassword.setBounds(100, 130, 200, 25);
                 panel.add(loginPassword);
 
-                JButton loginButton = new JButton("Login");
                 loginButton.setBounds(100, 160, 100, 25);
-                loginButton.addActionListener(new ActionListener() {
-
-                                                      @Override
-                                                      public void actionPerformed(ActionEvent e) {
-
-                                                              // TODO Auto-generated method stub
-
-                                                              View4 view4 = new View4();
-                                                              frame.setVisible(false);
-                                                      }
-
-
-                                              }
-
-                );
 
                 panel.add(loginButton);
 
@@ -93,29 +97,19 @@ public class View3 {
 
                 panel.add(signUpPasswordConfirmation);
 
-                JButton signUpButton = new JButton("Sign-Up");
                 signUpButton.setBounds(500, 160, 100, 25);
                 signUpButton.addActionListener(e1 -> {
                         if ((getSignUpPasswordConfirmation().equalsIgnoreCase((getSignUpPassword())))) {
                                 try {
-                                        BufferedWriter bw = new BufferedWriter(new FileWriter("UserDatabase.txt"));
-                                        bw.write(getSignUpName());
-                                        bw.newLine();
-                                        bw.write(getSignUpUsername());
-                                        bw.newLine();
-                                        bw.write(getSignUpPassword());
-                                        bw.newLine();
-                                        bw.close();
-                                        View3 view3 = new View3();
+                                        user.saveUser(new View3(model, view));
+                                        View3 view3 = new View3(model, view);
                                 } catch (Exception ex) {
                                         ex.printStackTrace();
                                 }
 
                         } else {
                                 JOptionPane.showMessageDialog(frame, "Passwords do not match!");
-                                // }
                         }
-
 
                 });
                 panel.add(signUpButton);
@@ -128,7 +122,7 @@ public class View3 {
 
         /**
          * getter for login username
-         * @return
+         * @return String
          */
         public String getLoginUsername() {
                 return loginUsername.getText();
@@ -136,7 +130,7 @@ public class View3 {
 
         /**
          * getter for login password
-         * @return
+         * @return String
          */
         public String getLoginPassword() {
                 return loginPassword.getText();
@@ -144,7 +138,7 @@ public class View3 {
 
         /**
          * getter for signed up name
-         * @return
+         * @return String
          */
         public String getSignUpName() {
                 return signUpName.getText();
@@ -152,7 +146,7 @@ public class View3 {
 
         /**
          * getter for signed up username
-         * @return
+         * @return String
          */
         public String getSignUpUsername() {
                 return signUpUsername.getText();
@@ -160,7 +154,7 @@ public class View3 {
 
         /**
          * getter for signed up password
-         * @return
+         * @return String
          */
         public String getSignUpPassword() {
                 return signUpPassword.getText();
@@ -168,7 +162,7 @@ public class View3 {
 
         /**
          * getter for password confirmation
-         * @return
+         * @return String
          */
         public String getSignUpPasswordConfirmation() {
                 return signUpPasswordConfirmation.getText();
@@ -206,50 +200,8 @@ public class View3 {
                 signUpPasswordConfirmation.setText(password);
         }
 
-        private void setAction() {
-
-                //loginButton.addActionListener(this);
-                //signUpButton.addActionListener(this);
-
-
-                //  if (e.getSource() == UserDatabase.txt) {
-
-                //check if username is exist
-                //if ((getLoginUsername()) == null) {
-                //     JOptionPane.showMessageDialog(frame, "this username does not exist");
-                //}
-                //else{ //check if the right password
-                //  if(UserDatabase.getUser_map().get(getLoginUsername()).doesPasswordEqual(getLoginPassword())){
-                // JOptionPane.showMessageDialog(frame,"login successfully");
-
-                // else{ // notify wrong password
-                //  JOptionPane.showMessageDialog(frame,"wrong password, please try again");
-                //  }
-                // }
-                //  }
-
-                //if(e.getSource() == signUpButton){
-
-                //check if username already exist
-
-
-                //else{// if then check if password and confirmation is the same
-                // if(signUpPassword.equals(signUpPasswordConfirmation)){
-                //User newUser = User(signUpName,signUpUsername,signUpPassword);
-                //UserDatabase.getUser_map().put(newUser.getUserName(),newUser);
-                //}
-
-                // else{
-                //JOptionPane.showMessageDialog(frame,"passwords does not match, try again");
-                // }
-
-                // }
-
-                // }
-
-                //  }
-
-                //  }
+        public void loginButtonListener(ActionListener loginButtonL){
+                loginButton.addActionListener(loginButtonL);
         }
 
 }
