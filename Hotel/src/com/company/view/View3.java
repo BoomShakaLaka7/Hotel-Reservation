@@ -64,7 +64,19 @@ public class View3 extends View2{
                 panel.add(loginPassword);
 
                 loginButton.setBounds(100, 160, 100, 25);
+                loginButton.addActionListener(e1 -> {
+                        if ((getLoginPassword().equals((getSignUpPassword())))) {
+                                try {
+                                        View4 view4 = new View4(getHotelName(),getHotelPrice());
+                                } catch (Exception ex) {
+                                        ex.printStackTrace();
+                                }
 
+                        } else {
+                                JOptionPane.showMessageDialog(frame, "Passwords do not match!");
+                        }
+
+                });
                 panel.add(loginButton);
 
                 // Sign-up Section
