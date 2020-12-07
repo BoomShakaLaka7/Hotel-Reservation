@@ -17,11 +17,9 @@ public class View3 extends View2{
         private JFrame frame = new JFrame("Authentication");
         private JLabel headDescription, loginDescription, signUpDescription;
         private JTextField loginUsername = new JTextField("Username", 10);
-//        private int hotelIndex;
         public User user = new User(this);
         JButton loginButton = new JButton("Login");
         JButton signUpButton = new JButton("Sign-Up");
-//        public List<Hotel> hotelArrayList;
         Model model;
         View view;
 
@@ -34,15 +32,6 @@ public class View3 extends View2{
         private JTextField signUpPassword = new JTextField("Password", 10);
         private JTextField signUpPasswordConfirmation = new JTextField("Confirm password", 10);
 
-        /**
-         * Constructor for View3
-         */
-//        public View3(String hotelIndex, List<Hotel> hotelsList) {
-//                initialize();
-//                frame.setVisible(true);
-//                this.hotelIndex = Integer.parseInt(hotelIndex);
-//                this.hotelArrayList = hotelsList;
-//        }
 
         public View3(Model model, View view) {
                 super(model, view);

@@ -22,8 +22,8 @@ public class View2 {
     JPanel panel = new JPanel();
     Date checkIn;
     Date checkOut;
-    public int index;
     int guests;
+    int star;
 
     JTextArea results = new JTextArea(20, 6);
     public List<Hotel> hotelList = new ArrayList<>();
@@ -67,7 +67,7 @@ public class View2 {
 
         if(view.filtered){
             Double review = Double.parseDouble(view.getReview());
-            int star = view.getStar();
+            star = view.getStar();
             int maxPrice = view.getMaxPrice();
             int minPrice = view.getMinPrice();
 
@@ -99,8 +99,6 @@ public class View2 {
                             && checkIn.after(today)) {
                         hotelList.add(model.getHotels().get(i));
                         hotelsFound += 1;
-                        index = i;
-//                        System.out.println(i + " " + model.getHotels().get(i));
                     }
                 }
                 results.append("    Hotel Name   \t" + "Location    \t" + "Price   \t" + "Star   \t" + "Reviews" + "\n\n");
@@ -140,5 +138,7 @@ public class View2 {
         int diff = (int) (checkOut.getTime() - checkIn.getTime())/ (1000 * 60 * 60 * 24);
         return hotelList.get(ind).getPrice() * diff * guests;
     }
+
+    public int getStar() { return star; }
 
 }

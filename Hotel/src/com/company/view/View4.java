@@ -25,7 +25,6 @@ public class View4 {
      * View4 constructor
      */
     public View4(String hotelName, int price){
-//        initialize();
         frame.setVisible(true);
         this.hotelName = hotelName;
 
@@ -69,15 +68,8 @@ public class View4 {
         hotel.setBounds(150, 150, 200, 20);
         hotel.setEditable(false);
 
-//        hotel.setText("");
         hotel.append(hotelName);
         panel.add(hotel);
-
-//        reservation = new JTextArea("Reservation");
-//        reservation.setBounds(150, 150, 200, 20);
-//        reservation.setEditable(false);
-//        panel.add(reservation);
-
 
         // Right Section : Reserve & Cancel Buttons
         JButton reserveButton = new JButton("Reserve");
@@ -130,7 +122,6 @@ public class View4 {
    public void setName(){
 
    }
-    // Generates random int value from 1000000 - 9999999
 
     /**
      * generates random number for account number
@@ -140,11 +131,4 @@ public class View4 {
         accountNumber.setText(Integer.toString(random_int));
     }
 
-//    /**
-//     * sets reservation number to a random number
-//     */
-//    public void setReservation(){
-//        int reservation_int = (int)(Math.random() * (9999999 - 1000000 + 1) + 1000000);
-//        reservation.setText(Integer.toString(reservation_int));
-//    }
 }
