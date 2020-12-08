@@ -42,7 +42,8 @@ public class Controller {
                 view2.reserveButtonListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        View3 view3 = new View3(model, view);
+//                        View3 view3 = new View3(view2.getEnteredValue(), view2.hotelList);
+                        View3 view3 = new View3();
                         view3.loginButtonListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {

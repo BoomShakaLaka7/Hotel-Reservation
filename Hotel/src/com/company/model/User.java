@@ -5,6 +5,8 @@ import com.company.view.View3;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class User implements Hotels{
     private String name;
@@ -18,7 +20,7 @@ public class User implements Hotels{
         this.view3 = view3;
     }
 
-    public void saveUser(View3 view3) throws IOException {
+    public void saveUser() throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter("UserDatabase.txt"));
         bw.write(view3.getSignUpName());
         bw.newLine();
@@ -27,6 +29,10 @@ public class User implements Hotels{
         bw.write(view3.getSignUpPassword());
         bw.newLine();
         bw.close();
+    }
+
+    public String getHotelName() {
+        return "HHH";//view3.getHotelList().get(1).getHotel();
     }
 
     public void setName(String name) {
@@ -43,7 +49,7 @@ public class User implements Hotels{
 
     @Override
     public String getHotel() {
-        return view3.getHotelName();
+        return getHotelName();
     }
 
     @Override
@@ -53,12 +59,12 @@ public class User implements Hotels{
 
     @Override
     public int getPrice() {
-        return view3.getHotelPrice();
+        return 0;
     }
 
     @Override
     public int getStar() {
-        return view3.getStar();
+        return 0;
     }
 
     @Override
