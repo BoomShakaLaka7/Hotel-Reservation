@@ -26,8 +26,6 @@ public class Controller {
     public Controller(View view, Model model) {
         this.view = view;
         this.model = model;
-//        this.view2 = view2;
-
         this.view.searchButtonListener(new searchButtonClick());
     }
 

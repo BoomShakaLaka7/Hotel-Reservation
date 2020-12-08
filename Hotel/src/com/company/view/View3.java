@@ -1,19 +1,14 @@
 package com.company.view;
 
-import com.company.model.Hotel;
 import com.company.model.Model;
 import com.company.model.User;
 
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * View3 class displays login/signup page
@@ -27,7 +22,6 @@ public class View3 {
         public User user = new User(this);
         JButton loginButton = new JButton("Login");
         JButton signUpButton = new JButton("Sign-Up");
-//        public List<Hotel> hotelArrayList;
         Model model;
         View view;
 
@@ -320,6 +314,10 @@ public class View3 {
                 signUpPasswordConfirmation.setText(password);
         }
 
+        /**
+         * listens for login button to be pressed
+         * @param loginButtonL
+         */
         public void loginButtonListener(ActionListener loginButtonL){
                 loginButton.addActionListener(loginButtonL);
         }

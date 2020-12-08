@@ -10,8 +10,8 @@ public class Process{
     private HashMap<Integer, User> map1 = new HashMap<>();
 
     /**
-     *
-     * @return
+     * function to check if the booking is reserved
+     * @return boolean
      */
     public boolean reserve()
     {
@@ -19,17 +19,10 @@ public class Process{
     }
 
     /**
-     *
-     * @return
+     *function to check if cancel is presses
+     * @return boolean
      */
     public boolean cancel(){
         return false;
-    }
-
-    /**
-     * 
-     */
-    public void search(){
-
     }
 }

@@ -247,7 +247,7 @@ public class View2 {
                 }
                 results.append("    Hotel Name   \t" + "Location    \t" + "Price   \t" + "Star   \t" + "Reviews" + "\n\n");
                 for (int i = 0; i < hotelsFound; i++) {
-                    results.append(i+1 + ": " +  hotelList.get(i).getHotel() + "\t" + hotelList.get(i).getLocation() + "\t"
+                    results.append(i + ": " +  hotelList.get(i).getHotel() + "\t" + hotelList.get(i).getLocation() + "\t"
                             + hotelList.get(i).getPrice() + "\t" + hotelList.get(i).getStar() + "\t" + hotelList.get(i).getReview() + "\n");
                 }
 
@@ -305,19 +305,39 @@ public class View2 {
 
     }
 
+    /**
+     * listens for reserve button to be clicked
+     * @param reserveButtonL
+     */
     public void reserveButtonListener(ActionListener reserveButtonL){
         reserveButton.addActionListener(reserveButtonL);
     }
 
+    /**
+     * getter for number of hotels found
+     * @return int
+     */
     public int getHotelsFound(){return hotelsFound;}
 
+    /**
+     * getter for the value(hotel number) entered by the user
+     * @return String
+     */
     public static String getEnteredValue(){return enteredValue.getText();}
 
+    /**
+     * getter for selected hotel name
+     * @return String
+     */
     public static String getHotelName(){
         int ind = Integer.parseInt(getEnteredValue());
         return hotelList.get(ind).getHotel();
     }
 
+    /**
+     * getter for selected hotel price
+     * @return int
+     */
     public static int getHotelPrice(){
         int ind = Integer.parseInt(getEnteredValue());
         int diff = (int) (checkOut.getTime() - checkIn.getTime())/ (1000 * 60 * 60 * 24);

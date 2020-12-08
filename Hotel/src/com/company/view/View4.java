@@ -1,9 +1,6 @@
 package com.company.view;
 
-import com.company.model.User;
-
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -138,7 +135,6 @@ public class View4 {
 
    }
     // Generates random int value from 1000000 - 9999999
-
     /**
      * generates random number for account number
      */
@@ -147,11 +143,4 @@ public class View4 {
         accountNumber.setText(Integer.toString(random_int));
     }
 
-//    /**
-//     * sets reservation number to a random number
-//     */
-//    public void setReservation(){
-//        int reservation_int = (int)(Math.random() * (9999999 - 1000000 + 1) + 1000000);
-//        reservation.setText(Integer.toString(reservation_int));
-//    }
 }

@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * User class
+ */
 public class User implements Hotels{
     private String name;
     private String username;
@@ -16,10 +19,18 @@ public class User implements Hotels{
 
     View3 view3;
 
+    /**
+     * constructor for User
+     * @param view3
+     */
     public User(View3 view3) {
         this.view3 = view3;
     }
 
+    /**
+     * writes user information in "UserDatabase.txt"
+     * @throws IOException
+     */
     public void saveUser() throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter("UserDatabase.txt"));
         bw.write(view3.getSignUpName());
@@ -31,26 +42,33 @@ public class User implements Hotels{
         bw.close();
     }
 
-    public String getHotelName() {
-        return "HHH";//view3.getHotelList().get(1).getHotel();
-    }
 
+    /**
+     * setter for user name
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * setter for user's username
+     * @param username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * setter for user's account number
+     * @param accountNumber
+     */
     public void setAccountNumber(int accountNumber) {
         this.accountNumber = accountNumber;
     }
 
     @Override
-    public String getHotel() {
-        return getHotelName();
-    }
+    public String getHotel() { return null; }
 
     @Override
     public String getLocation() {
@@ -58,9 +76,7 @@ public class User implements Hotels{
     }
 
     @Override
-    public int getPrice() {
-        return 0;
-    }
+    public int getPrice() { return 0; }
 
     @Override
     public int getStar() {
